@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #1D282C !important;
+}
+
+.borer {
+    border-right : 1px solid  white;
+}
+
+.borderBottom {
+    border-bottom : 1px solid  white;
+}
+th,td  {
+    border-bottom: 1px solid white !important;
+    font-size: 19px;
+    color: white !important;
+}
+
+.hover:hover {
+    background: transparent;
+}
+
+.linkColor {
+    color: rgba(0, 0, 205, 0.899) !important;
+}
