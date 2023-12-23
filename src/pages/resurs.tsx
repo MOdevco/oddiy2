@@ -11,6 +11,7 @@ import PhisicalFace from '../components/phisicalFace/phisicalFace'
 import Employee from '../components/employee/employee'
 import PriceCourse from '../components/priceCourse/priceCourse'
 import News from '../components/news/news'
+import TopMentor from '../components/topMentor/topMentor'
 const Resurs = () => {
     const [obj , setObj] = useState({photo: ''})
     console.log(obj);
@@ -50,6 +51,10 @@ const Resurs = () => {
                 <TabPanel>
                     <News   handleFile={handleFile} obj={obj}  />
                 </TabPanel>
+                <TabPanel>
+                    <TopMentor />
+                </TabPanel>
+
             </TabPanels>
         </Tabs>
     </Box>
