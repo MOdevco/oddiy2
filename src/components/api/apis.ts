@@ -2,4 +2,4 @@
 // export const api = 'http://dataspinacademy.uz/'
 export const api = 'http://192.168.37.66/'
 // export const api = 'http://192.168.37.66:1328/'
-localStorage.setItem('token' , "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5OTg5MDAwMDAwMDAiLCJpYXQiOjE3MDM1NzM0OTgsImV4cCI6MTcwNjE2NTQ5OH0.P0ScQ9YdL2Ln7DW7b1omJaSM4xrOzGyL4UpebFUrJP4WhtSdP95RE8HgMLvM_mRsOVA6aRtrMLW3LREq4E3xHg")
+localStorage.setItem('token' , "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIrOTk4OTExMTExMTExIiwiaWF0IjoxNzAzNTc3NDg2LCJleHAiOjE3MDYxNjk0ODZ9.vUe04j3RT5sBgj0FAAgHKvZpvASDRqM1IIzl_z3HFeRwAHaGfaSlV4s7x2YgTQLoNGEPZeqE6rux5PzhtL9ACw")
