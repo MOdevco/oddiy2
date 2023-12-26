@@ -39,7 +39,7 @@ const Employee = ({handleFile , obj}:any) => {
 
     const time = new Date()
     const h = time.getHours()
-    const m = time.getMinutes()
+    const m = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()
     
 
     useEffect(() => {
