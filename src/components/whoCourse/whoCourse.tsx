@@ -38,8 +38,8 @@ const WhoCourse = () => {
     const handleSubmit = (e:any) => {
         e.preventDefault()
         axios.post(`${api}api/course-for/create` ,{
-            "name": value.name,
-            "description": value.description
+            "name": value.name.trim(),
+            "description": value.description.trim()
         } ,{
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`

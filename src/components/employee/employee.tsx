@@ -129,7 +129,6 @@ const Employee = ({handleFile , obj}:any) => {
                         value: item.id,
                         label: item.name
                     }))}>
-                    
                     </Select>
                 </FormControl>  
                 <FormControl isRequired>

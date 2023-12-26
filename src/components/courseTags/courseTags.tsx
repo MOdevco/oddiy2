@@ -15,8 +15,6 @@ import { useToast } from '@chakra-ui/react'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
   } from '@chakra-ui/react'
 
 const CourseTags = () => {
@@ -52,7 +50,7 @@ const CourseTags = () => {
             setValidate(true)
         } else {
             axios.post(`${api}api/tag/create` ,{
-                "name": value.name
+                "name": value.name.trim()
             } ,{
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
