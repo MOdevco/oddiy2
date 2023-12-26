@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, FormLabel, Heading, Input } from '@chakra-ui/react'
+import { Box, Button, FormControl, FormLabel, Heading, Input, background } from '@chakra-ui/react'
 import {
     Table,
     Thead,
@@ -121,20 +121,25 @@ const Course = ({handleFile,obj}:any) => {
     }
 
     const customStyles = {
-        control: (provided, state) => ({
-          ...provided,
-          backgroundColor: 'transparent',
-          // Set your desired background color here
-        }),
-        option: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.isSelected ? '#007bff' : 'gray', // Change the background color as needed
-            color: state.isSelected ? 'white' : 'white',
-          }),
-          singleValue: (provided, state) => ({
-            ...provided,
-            color: state.isSelected ? 'white' : 'white', // Change the text color for the selected option
-          }),
+        // control: (provided, state) => ({
+        //   ...provided,
+        //   backgroundColor: 'transparent',
+        //   // Set your desired background color here
+        // }),
+        // option: (provided, state) => ({
+        //     ...provided,
+        //     backgroundColor: state.isSelected ? '#0000' : '#000',
+        //      // Change the background color as needed
+        //   }),
+        // singleValue: (provided, state) => ({
+        //     ...provided,
+        //     color: state.isSelected ? 'black' : 'white',
+        //      // Change the text color for the selected option
+        // }),
+        // value: (provided, state) => {
+        //     background: 'red'
+        // }
+        
       };
     //   console.log(id2.value); id olish
       
@@ -155,7 +160,7 @@ const Course = ({handleFile,obj}:any) => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Kim uchun?</FormLabel>
-                    <Select defaultValue={id1} onChange={setId1} styles={customStyles} placeholder='kim uchun'
+                    <Select defaultValue={id1} onChange={setId1} placeholder='kim uchun'
                     options={courseFor.map((option, index) => ({
                         value: option.id,
                         label: option.name
