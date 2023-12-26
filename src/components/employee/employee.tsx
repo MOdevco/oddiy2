@@ -24,7 +24,9 @@ const Employee = ({handleFile , obj}:any) => {
     const [faceId , setFaceId] = useState([])    
     const [stuffId , setStuffId] = useState([])    
     const [getFaceId , setGetFaceId] = useState({id: ''})    
-    const [getStuffId , setGetStuffId] = useState({id: ''})    
+    const [getStuffId , setGetStuffId] = useState({id: ''})
+    const [id1, setId1] = useState<type>('');    
+    const [id2, setId2] = useState<type>('');    
     
 
     const dateBirthday = value.startDate
@@ -112,8 +114,18 @@ const Employee = ({handleFile , obj}:any) => {
     const customStyles = {
         control: (provided, state) => ({
           ...provided,
-          backgroundColor: 'transparent', // Set your desired background color here
+          backgroundColor: 'transparent',
+          // Set your desired background color here
         }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#007bff' : 'gray', // Change the background color as needed
+            color: state.isSelected ? 'white' : 'white',
+          }),
+          singleValue: (provided, state) => ({
+            ...provided,
+            color: state.isSelected ? 'white' : 'white', // Change the text color for the selected option
+          }),
       };
   return (
    <Box mt={5}>
@@ -124,7 +136,7 @@ const Employee = ({handleFile , obj}:any) => {
             <Box display={'flex'} gap={5} alignItems={'center'}>
                 <FormControl isRequired>
                     <FormLabel>Lavozim</FormLabel>
-                    <Select styles={customStyles} placeholder='lavozim tanlash' onChange={(e) => setGetStuffId({...getStuffId, id: e.target.value})}
+                    <Select defaultValue={id1} onInputChange={setId1} styles={customStyles} placeholder='lavozim tanlash'
                     options={stuffId.map((item, index) => ({
                         value: item.id,
                         label: item.name
@@ -133,7 +145,7 @@ const Employee = ({handleFile , obj}:any) => {
                 </FormControl>  
                 <FormControl isRequired>
                     <FormLabel>Jismoniy sahs</FormLabel>
-                    <Select styles={customStyles} placeholder='shaxs tanlash' onChange={(e) => setGetFaceId({...getFaceId, id: e.target.value})}
+                    <Select defaultValue={id2} onInputChange={setId2} styles={customStyles} placeholder='shaxs tanlash' 
                     options={faceId.map((item, index) => ({
                         value: item.id,
                         label: item.firstname
