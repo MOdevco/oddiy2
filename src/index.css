@@ -27,6 +27,3 @@ th,td  {
 .linkColor {
     color: rgba(0, 0, 205, 0.899) !important;
 }
-.option[value=""][disabled]{
-    display: none;
-}

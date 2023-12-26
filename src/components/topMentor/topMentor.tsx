@@ -11,7 +11,8 @@ const TopMentor = () => {
     const customStyles = {
         control: (provided) => ({
           ...provided,
-          width: '400px'
+          width: '400px',
+          backgroundColor: 'transparent',
         }),
         menu: (provided) => ({
             ...provided,
@@ -85,6 +86,7 @@ const TopMentor = () => {
                     <Select
                         defaultValue={employeeId}
                         onChange={setEmployeeId}
+                        placeholder='hodim'
                         styles={customStyles}
                         options={employee.map((option, index) => ({
                             value: option.id,
