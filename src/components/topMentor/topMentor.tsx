@@ -29,22 +29,6 @@ const TopMentor = () => {
                     color: state.isSelected ? 'white' : 'white', // Change the text color for the selected option
                   }),
       };
-    //   const customStyles = {
-    //     control: (provided, state) => ({
-    //       ...provided,
-    //       backgroundColor: 'transparent',
-    //       // Set your desired background color here
-    //     }),
-    //     option: (provided, state) => ({
-    //         ...provided,
-    //         backgroundColor: state.isSelected ? '#007bff' : 'gray', // Change the background color as needed
-    //         color: state.isSelected ? 'white' : 'white',
-    //       }),
-    //       singleValue: (provided, state) => ({
-    //         ...provided,
-    //         color: state.isSelected ? 'white' : 'white', // Change the text color for the selected option
-    //       }),
-    //   };
     const [selectedOption, setSelectedOption] = useState([]);
     const [course, setCourse] = useState([]);
     const [employee, setEmployee] = useState([]);
