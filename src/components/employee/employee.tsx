@@ -24,7 +24,9 @@ const Employee = ({handleFile , obj}:any) => {
     const [faceId , setFaceId] = useState([])    
     const [stuffId , setStuffId] = useState([])    
     const [getFaceId , setGetFaceId] = useState({id: ''})    
-    const [getStuffId , setGetStuffId] = useState({id: ''})    
+    const [getStuffId , setGetStuffId] = useState({id: ''})
+    const [id1, setId1] = useState<type>('');    
+    const [id2, setId2] = useState<type>('');    
     
 
     const dateBirthday = value.startDate

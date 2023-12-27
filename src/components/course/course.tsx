@@ -22,6 +22,9 @@ const Course = ({handleFile,obj}:any) => {
     const [courseTypeValue , setCourseTypeValue] = useState({id: ''})
     const [courseForValue , setCourseForValue] = useState({id: ''})
     const [value , setValue] = useState({name: '' , description: '' , status: ''})
+    const [id1, setId1] = useState('');
+    const [id2, setId2] = useState('');
+    const [id3, setId3] = useState('');
     
     
     const toast = useToast()

@@ -28,6 +28,7 @@ const PriceCourse = () => {
     const [courseForValue , setCourseForValue] = useState({id: ''})
     const [value , setValue] = useState({name: '', startDate: ''})
     const [id , setId] = useState(null)
+    
     const ap = `api/course-price/by-course/?id=${id}`
 
     const dateBirthday = value.startDate

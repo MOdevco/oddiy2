@@ -9,12 +9,12 @@ import { api } from '../api/apis';
 
 const TopMentor = () => {
     const customStyles = {
-        control: (provided) => ({
+        control: (provided:any) => ({
           ...provided,
           width: '400px',
           backgroundColor: 'transparent',
         }),
-        menu: (provided) => ({
+        menu: (provided:any) => ({
             ...provided,
             width: '400px',
             color: 'black'
@@ -80,7 +80,7 @@ const TopMentor = () => {
     const handleSubmit = () => {
         axios.post(`${api}api/mentors/new`,{
                 "courseIDs": ``,
-                "employeeID": employeeId.value,
+                "employeeID": employeeId,
         } ,{
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -103,7 +103,7 @@ const TopMentor = () => {
   return (
     <Box>
             <Box pb={5}>
-                    <Heading fontSize={'30px'}>Oqituvchi</Heading>
+                <Heading fontSize={'30px'}>Oqituvchi</Heading>
             </Box>
             <Box display={'flex'} gap={'2rem'} alignItems={'center'}>
             <Box>
