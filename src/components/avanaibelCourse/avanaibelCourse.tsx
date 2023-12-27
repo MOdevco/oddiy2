@@ -7,7 +7,6 @@ import {
     Th,
     Td,
   } from '@chakra-ui/react'
-  import Select from 'react-select';
 import { useState ,useEffect } from 'react'
 import { Spinner } from '@chakra-ui/react'
 import axios from 'axios'
@@ -16,6 +15,7 @@ import { useToast } from '@chakra-ui/react'
 import {
     FormControl,
   } from '@chakra-ui/react'
+  import { Select } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 const AvanaibelCourse = ({handleFile , obj}:any) => {
     const [loader , setLoader] = useState(true)
@@ -93,12 +93,7 @@ const AvanaibelCourse = ({handleFile , obj}:any) => {
         }
     }
 
-    const customStyles = {
-        control: (provided, state) => ({
-          ...provided,
-          backgroundColor: 'transparent', // Set your desired background color here
-        }),
-      };
+    const filteredOptions = dataTag.filter(option => option.label !== 'Select an option');
   return (
    <Box mt={5}>
          <Box>
@@ -116,13 +111,11 @@ const AvanaibelCourse = ({handleFile , obj}:any) => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Tag tanlash</FormLabel>
-                    <Select styles={customStyles} placeholder='tag tanlash' onChange={(e) => setTagValue({...tagValue,id: e.target.value})}
-                     options={dataTag.map((option, index) => ({
-                        value: option.id,
-                        label: option.name
-                    }))}>
-                        
-                       
+                    <Select placeholder='tag tanlash' onChange={(e) => setTagValue({...tagValue,id: e.target.value})}>
+                        <option selected disabled className='option' value="">tag tanlash</option>
+                        {dataTag.map((item:any , i) => (
+                            <option style={{background: '#37414B'}} value={item.id} >{item.name}</option>
+                        ))}
                     </Select>
                 </FormControl>
                     <Box >
