@@ -71,8 +71,7 @@ const TopMentor = () => {
             })
         })
 }
-console.log(employeeId);
-console.log(selectedOption);
+
 
 
   return (

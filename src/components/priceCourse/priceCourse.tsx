@@ -118,6 +118,7 @@ const PriceCourse = () => {
                 <FormControl isRequired>
                     <FormLabel>Kurs nomi</FormLabel>
                     <Select onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}>
+                        <option selected disabled className='option' value="">kurs tanlash</option>
                         {data.map((item:any , i) => (
                             <option style={{background: '#37414B'}} value={item.id} >{item.name}/{item.courseFor.name}/{item.courseType.name}</option>
                         ))}

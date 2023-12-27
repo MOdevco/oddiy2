@@ -93,7 +93,7 @@ const AvanaibelCourse = ({handleFile , obj}:any) => {
         }
     }
 
-
+    const filteredOptions = dataTag.filter(option => option.label !== 'Select an option');
   return (
    <Box mt={5}>
          <Box>
@@ -111,7 +111,8 @@ const AvanaibelCourse = ({handleFile , obj}:any) => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Tag tanlash</FormLabel>
-                    <Select onChange={(e) => setTagValue({...tagValue,id: e.target.value})}>
+                    <Select placeholder='tag tanlash' onChange={(e) => setTagValue({...tagValue,id: e.target.value})}>
+                        <option selected disabled className='option' value="">tag tanlash</option>
                         {dataTag.map((item:any , i) => (
                             <option style={{background: '#37414B'}} value={item.id} >{item.name}</option>
                         ))}

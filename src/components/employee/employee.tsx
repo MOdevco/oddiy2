@@ -119,6 +119,7 @@ const Employee = ({handleFile , obj}:any) => {
                 <FormControl isRequired>
                     <FormLabel>Lavozim</FormLabel>
                     <Select onChange={(e) => setGetStuffId({...getStuffId, id: e.target.value})}>
+                    <option selected disabled className='option' value="">lavozim tanlash</option>
                         {stuffId.map((item:any , i) => (
                             <option style={{background: '#37414B'}}value={item.id} >{item.name}</option>
                         ))}
@@ -127,6 +128,7 @@ const Employee = ({handleFile , obj}:any) => {
                 <FormControl isRequired>
                     <FormLabel>Jismoniy sahs</FormLabel>
                     <Select  onChange={(e) => setGetFaceId({...getFaceId, id: e.target.value})}>
+                    <option selected disabled className='option' value="">shaxs tanlash</option>
                         {faceId.map((item:any , i) => (
                             <option style={{background: '#37414B'}}value={item.id} >{item.firstname}</option>
                         ))}

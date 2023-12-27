@@ -129,6 +129,7 @@ const Course = ({handleFile,obj}:any) => {
                 <FormControl isRequired>
                     <FormLabel>Kim uchun?</FormLabel>
                     <Select onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}>
+                    <option selected disabled className='option' value="">kim uchun</option>
                         {courseFor.map((item:any , i) => (
                             <option style={{background: '#37414B'}} value={item.id} >{item.name}</option>
                         ))}
@@ -144,6 +145,7 @@ const Course = ({handleFile,obj}:any) => {
                 <FormControl isRequired>
                     <FormLabel>Yonalish</FormLabel>
                     <Select  onChange={(e) => setCourseTypeValue({...courseTypeValue,id: e.target.value})}>
+                    <option selected disabled className='option' value="">yonalish tanlash</option>
                         {courseType.map((item:any , i) => (
                             <option style={{background: '#37414B'}} value={item.id} >{item.name}</option>
                         ))}
