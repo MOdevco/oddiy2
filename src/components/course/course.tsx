@@ -29,6 +29,9 @@ const Course = ({handleFile,obj}:any) => {
     const [courseTypeValue , setCourseTypeValue] = useState({id: ''})
     const [courseForValue , setCourseForValue] = useState({id: ''})
     const [value , setValue] = useState({name: '' , description: '' , status: ''})
+    const [id1, setId1] = useState('');
+    const [id2, setId2] = useState('');
+    const [id3, setId3] = useState('');
     
     
     const toast = useToast()
@@ -120,9 +123,21 @@ const Course = ({handleFile,obj}:any) => {
     const customStyles = {
         control: (provided, state) => ({
           ...provided,
-          backgroundColor: 'transparent', // Set your desired background color here
+          backgroundColor: 'transparent',
+          // Set your desired background color here
         }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#007bff' : 'gray', // Change the background color as needed
+            color: state.isSelected ? 'white' : 'white',
+          }),
+          singleValue: (provided, state) => ({
+            ...provided,
+            color: state.isSelected ? 'white' : 'white', // Change the text color for the selected option
+          }),
       };
+    //   console.log(id2.value); id olish
+      
   return (
    <Box mt={5}>
         <Box>
@@ -140,7 +155,7 @@ const Course = ({handleFile,obj}:any) => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Kim uchun?</FormLabel>
-                    <Select styles={customStyles} placeholder='kim uchun' onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}
+                    <Select defaultValue={id1} onChange={setId1} styles={customStyles} placeholder='kim uchun'
                     options={courseFor.map((option, index) => ({
                         value: option.id,
                         label: option.name
@@ -149,16 +164,16 @@ const Course = ({handleFile,obj}:any) => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Kim holati</FormLabel>
-                    <Select styles={customStyles} onChange={(e) => setValue({...value,status: e.target.value})}
+                    <Select defaultValue={id2} onChange={setId2} styles={customStyles} 
                     options={options.map((option, index) => ({
-                        value: option.value,
+                        value: index,
                         label: option.label
                     }))}>
                     </Select>
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Yonalish</FormLabel>
-                    <Select styles={customStyles} placeholder='yonalish tanlash' onChange={(e) => setCourseTypeValue({...courseTypeValue,id: e.target.value})} 
+                    <Select defaultValue={id3} onChange={setId3} styles={customStyles} placeholder='yonalish tanlash' 
                     options={courseType.map((option, index) => ({
                         value: option.id,
                         label: option.name

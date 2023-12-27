@@ -28,6 +28,7 @@ const PriceCourse = () => {
     const [courseForValue , setCourseForValue] = useState({id: ''})
     const [value , setValue] = useState({name: '', startDate: ''})
     const [id , setId] = useState(null)
+    
     const ap = `api/course-price/by-course/?id=${id}`
 
     const dateBirthday = value.startDate
@@ -111,8 +112,18 @@ const PriceCourse = () => {
     const customStyles = {
         control: (provided, state) => ({
           ...provided,
-          backgroundColor: 'transparent', // Set your desired background color here
+          backgroundColor: 'transparent',
+          // Set your desired background color here
         }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#007bff' : 'gray', // Change the background color as needed
+            color: state.isSelected ? 'white' : 'white',
+          }),
+          singleValue: (provided, state) => ({
+            ...provided,
+            color: state.isSelected ? 'white' : 'white', // Change the text color for the selected option
+          }),
       };
   return (
     <Box mt={5}  width={'100%'}>
@@ -123,7 +134,7 @@ const PriceCourse = () => {
             <Box display={'flex'} gap={5} alignItems={'flex-end'}>
                 <FormControl isRequired>
                     <FormLabel>Kurs nomi</FormLabel>
-                    <Select styles={customStyles} onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}
+                    <Select styles={customStyles} defaultValue={courseForValue} onChange={setCourseForValue}
                     options={data.map((item, index) => ({
                         value: item.id,
                         label: `${item.name}/${item.courseFor.name}/${item.courseType.name}`
