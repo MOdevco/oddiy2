@@ -7,13 +7,20 @@ import {
     Th,
     Td,
   } from '@chakra-ui/react'
+  import Select from 'react-select';
 import { useState ,useEffect } from 'react'
 import { Spinner } from '@chakra-ui/react'
 import axios from 'axios'
 import { api } from '../api/apis'
 import { useToast } from '@chakra-ui/react'
-import { Select } from '@chakra-ui/react'
+
 import { Link } from 'react-router-dom'
+
+
+const options = [
+    { value: 'active', label: 'Holati active' },
+    { value: 'inactive', label: 'Holati inactive' },
+  ];
 const Course = ({handleFile,obj}:any) => {
     const [loader , setLoader] = useState(true)
     const [data , setData] = useState([])
@@ -110,7 +117,12 @@ const Course = ({handleFile,obj}:any) => {
         }
     }
 
-  
+    const customStyles = {
+        control: (provided, state) => ({
+          ...provided,
+          backgroundColor: 'transparent', // Set your desired background color here
+        }),
+      };
   return (
    <Box mt={5}>
         <Box>
@@ -128,27 +140,30 @@ const Course = ({handleFile,obj}:any) => {
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Kim uchun?</FormLabel>
-                    <Select onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}>
-                    <option selected disabled className='option' value="">kim uchun</option>
-                        {courseFor.map((item:any , i) => (
-                            <option style={{background: '#37414B'}} value={item.id} >{item.name}</option>
-                        ))}
+                    <Select styles={customStyles} placeholder='kim uchun' onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}
+                    options={courseFor.map((option, index) => ({
+                        value: option.id,
+                        label: option.name
+                    }))}>
                     </Select>
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Kim holati</FormLabel>
-                    <Select onChange={(e) => setValue({...value,status: e.target.value})}>
-                        <option style={{background: '#37414B'}} value={true}>Holati active</option>
-                        <option style={{background: '#37414B'}} value={false}>Holati inactive</option>
+                    <Select styles={customStyles} onChange={(e) => setValue({...value,status: e.target.value})}
+                    options={options.map((option, index) => ({
+                        value: option.value,
+                        label: option.label
+                    }))}>
                     </Select>
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>Yonalish</FormLabel>
-                    <Select  onChange={(e) => setCourseTypeValue({...courseTypeValue,id: e.target.value})}>
-                    <option selected disabled className='option' value="">yonalish tanlash</option>
-                        {courseType.map((item:any , i) => (
-                            <option style={{background: '#37414B'}} value={item.id} >{item.name}</option>
-                        ))}
+                    <Select styles={customStyles} placeholder='yonalish tanlash' onChange={(e) => setCourseTypeValue({...courseTypeValue,id: e.target.value})} 
+                    options={courseType.map((option, index) => ({
+                        value: option.id,
+                        label: option.name
+                    }))}>
+                    
                     </Select>
                 </FormControl>
                 <Box >

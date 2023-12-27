@@ -12,7 +12,7 @@ import { Spinner } from '@chakra-ui/react'
 import axios from 'axios'
 import { api } from '../api/apis'
 import { useToast } from '@chakra-ui/react'
-import { Select } from '@chakra-ui/react'
+import Select from 'react-select';
 import { Link } from 'react-router-dom'
 
 
@@ -109,6 +109,12 @@ const Employee = ({handleFile , obj}:any) => {
         
     }
 
+    const customStyles = {
+        control: (provided, state) => ({
+          ...provided,
+          backgroundColor: 'transparent', // Set your desired background color here
+        }),
+      };
   return (
    <Box mt={5}>
         <Box>
@@ -118,20 +124,22 @@ const Employee = ({handleFile , obj}:any) => {
             <Box display={'flex'} gap={5} alignItems={'center'}>
                 <FormControl isRequired>
                     <FormLabel>Lavozim</FormLabel>
-                    <Select onChange={(e) => setGetStuffId({...getStuffId, id: e.target.value})}>
-                    <option selected disabled className='option' value="">lavozim tanlash</option>
-                        {stuffId.map((item:any , i) => (
-                            <option style={{background: '#37414B'}}value={item.id} >{item.name}</option>
-                        ))}
+                    <Select styles={customStyles} placeholder='lavozim tanlash' onChange={(e) => setGetStuffId({...getStuffId, id: e.target.value})}
+                    options={stuffId.map((item, index) => ({
+                        value: item.id,
+                        label: item.name
+                    }))}>
+                    
                     </Select>
                 </FormControl>  
                 <FormControl isRequired>
                     <FormLabel>Jismoniy sahs</FormLabel>
-                    <Select  onChange={(e) => setGetFaceId({...getFaceId, id: e.target.value})}>
-                    <option selected disabled className='option' value="">shaxs tanlash</option>
-                        {faceId.map((item:any , i) => (
-                            <option style={{background: '#37414B'}}value={item.id} >{item.firstname}</option>
-                        ))}
+                    <Select styles={customStyles} placeholder='shaxs tanlash' onChange={(e) => setGetFaceId({...getFaceId, id: e.target.value})}
+                    options={faceId.map((item, index) => ({
+                        value: item.id,
+                        label: item.firstname
+                    }))}>
+                    
                     </Select>
                 </FormControl>  
               

@@ -12,7 +12,7 @@ import { Spinner } from '@chakra-ui/react'
 import axios from 'axios'
 import { api } from '../api/apis'
 import { useToast } from '@chakra-ui/react'
-import { Select } from '@chakra-ui/react'
+import Select from 'react-select';
 import { Link } from 'react-router-dom'
 import {
     Accordion,
@@ -108,6 +108,12 @@ const PriceCourse = () => {
         }
     }
     
+    const customStyles = {
+        control: (provided, state) => ({
+          ...provided,
+          backgroundColor: 'transparent', // Set your desired background color here
+        }),
+      };
   return (
     <Box mt={5}  width={'100%'}>
         <Box width={'100%'}>
@@ -117,11 +123,12 @@ const PriceCourse = () => {
             <Box display={'flex'} gap={5} alignItems={'flex-end'}>
                 <FormControl isRequired>
                     <FormLabel>Kurs nomi</FormLabel>
-                    <Select onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}>
-                        <option selected disabled className='option' value="">kurs tanlash</option>
-                        {data.map((item:any , i) => (
-                            <option style={{background: '#37414B'}} value={item.id} >{item.name}/{item.courseFor.name}/{item.courseType.name}</option>
-                        ))}
+                    <Select styles={customStyles} onChange={(e) => setCourseForValue({...courseForValue,id: e.target.value})}
+                    options={data.map((item, index) => ({
+                        value: item.id,
+                        label: `${item.name}/${item.courseFor.name}/${item.courseType.name}`
+                    }))}>
+                        
                     </Select>
                 </FormControl>
                 <FormControl isRequired>
